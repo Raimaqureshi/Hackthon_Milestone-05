@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .resume-section {
+            margin-bottom: 20px;
+        }
+        .resume-section h2 {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div id="resumeOutput"></div>
+
+    <script>
+        // Function to get URL parameters
+        function getURLParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Get the encoded resume data from the URL
+        const encodedData = getURLParameter('data');
+
+        if (encodedData) {
+            // Decode the resume data
+            const resumeData = JSON.parse(decodeURIComponent(encodedData));
+
+            // Generate the resume HTML
+            const resumeHTML = `
+                <h1>${resumeData.FirstName} ${resumeData.LastName}'s Resume</h1>
+                <div class="resume-section">
+                    <h2>Personal Information</h2>
+                    <p><strong>First Name:</strong> ${resumeData.FirstName}</p>
+                    <p><strong>Last Name:</strong> ${resumeData.LastName}</p>
+                    <p><strong>Email:</strong> ${resumeData.email}</p>
+                    <p><strong>Phone:</strong> ${resumeData.phone}</p>
+                </div>
+                <div class="resume-section">
+                    <h2>Academic Qualification</h2>
+                    <p><strong>Degree:</strong> ${resumeData.degree}</p>
+                    <p><strong>Institution:</strong> ${resumeData.institution}</p>
+                    <p><strong>Passing Year:</strong> ${resumeData.passingyear}</p>
+                </div>
+                <div class="resume-section">
+                    <h2>Work Experience</h2>
+                    <p><strong>Company Name:</strong> ${resumeData.companyname}</p>
+                    <p><strong>Job Title:</strong> ${resumeData.jobtitle}</p>
+                    <p><strong>Duration:</strong> ${resumeData.duration}</p>
+                </div>
+                <div class="resume-section">
+                    <h2>Skills</h2>
+                    <p><strong>Technical Skills:</strong> ${resumeData.technicalskills}</p>
+                    <p><strong>Soft Skills:</strong> ${resumeData.softskills}</p>
+                </div>
+            `;
+
+            // Display the resume in the page
+            document.getElementById('resumeOutput').innerHTML = resumeHTML;
+        } else {
+            document.getElementById('resumeOutput').innerHTML = '<p>No resume data available!</p>';
+        }
+    </script>
+</body>
+</html>
