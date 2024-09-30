@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shareable Resume Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <form id="resumeForm">
+        <h1><b><i><u>RESUME FORM</u></i></b></h1><br>
+        <hr>
+        <h2><b><i><u>Personal Information</u></i></b></h2>
+        <label for="FirstName">First Name:</label>
+        <input type="text" id="FirstName" name="FirstName"><br><br>
+
+        <label for="LastName">Last Name:</label>
+        <input type="text" id="LastName" name="LastName"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone"><br><br>
+
+        <h2><b><i><u>Academic Qualification</u></i></b></h2>
+        <label for="degree">Degree:</label>
+        <input type="text" id="degree" name="degree"><br><br>
+
+        <label for="institution">Institution:</label>
+        <input type="text" id="institution" name="institution"><br><br>
+
+        <label for="passingyear">Passing Year:</label>
+        <input type="text" id="passingyear" name="passingyear"><br><br>
+
+        <h2><b><i><u>Work Experience</u></i></b></h2>
+        <label for="companyname">Company Name:</label>
+        <input type="text" id="companyname" name="companyname"><br><br>
+
+        <label for="jobtitle">Job Title:</label>
+        <input type="text" id="jobtitle" name="jobtitle"><br><br>
+
+        <label for="duration">Duration:</label>
+        <input type="text" id="duration" name="duration"><br><br>
+
+        <h2><b><i><u>Skills</u></i></b></h2>
+        <label for="technicalskills">Technical Skills:</label>
+        <input type="text" id="technicalskills" name="technicalskills"><br><br>
+
+        <label for="softskills">Soft Skills:</label>
+        <input type="text" id="softskills" name="softskills"><br><br>
+
+        <button type="submit">Generate Resume</button>
+    </form>
+
+    <div id="resumeOutput"></div><br>
+
+    <div id="shareable-link-container" style="display: block;">
+        <h2>Shareable Link</h2>
+        <a href="#" id="shareable-link" target="_blank"></a><br>
+        <button id="download-pdf"><b>Download as PDF</b></button>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
